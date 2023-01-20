@@ -28,11 +28,16 @@ public class BookController {
         Book b=this.bookService.addBook(book);
         return b;
     }
+    //update book handler
+    @PutMapping("/books/{Id}")
+    public Book updateBook(@RequestBody Book book,@PathVariable("bookId")int bookId){
+        this.bookService.updateBook(book,bookId);
+        return book;
+    }
     //delete book handler
     @DeleteMapping("/books/{bookId}")
     public void deleteBook(@PathVariable("bookId")int bookId){
         this.bookService.deleteBook(bookId);
-
     }
 }
 
